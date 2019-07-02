@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body})}">
+
+<body>
+<h1>Positions</h1>
+<ul>
+  <div th:each="position, iter : ${positions}">
+    <li>
+      <a th:href="@{'positions/' + ${position}}" th:text="${position}"></a>
+    </li>
+  </div>
+</ul>
+
+<a th:href="@{/}" th:text="'Go to teams'"></a>
+</body>
+</html>

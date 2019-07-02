@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body})}">
+
+<body>
+<a th:href="@{/positions}" th:text="'Go back'"></a>
+
+<h1 th:text="${'Position Name: ' + positionName}"></h1>
+
+<h2>Players in this Position</h2>
+
+<ul>
+  <div th:each="instance : ${position}">
+    <li>
+      <p th:text="'Name: ' + ${instance.key.name}"></p>
+      <p th:text="'Country: ' + ${instance.value.teamName}"></p>
+    </li>
+  </div>
+</ul>
+
+</body>
+</html>

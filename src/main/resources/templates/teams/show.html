@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body})}">
+
+<body>
+<a th:href="@{/}" th:text="'Go back'"></a>
+
+<h1 th:text="${team.teamName}"></h1>
+
+<h2>List of Players</h2>
+
+<ul>
+  <div th:each="player : ${team.players}">
+    <div th:object="${player}">
+      <li>
+        <p th:text="'Name: ' + *{name}"></p>
+        <p th:text="'Position: ' + *{position}"></p>
+      </li>
+    </div>
+  </div>
+</ul>
+</body>
+</html>
